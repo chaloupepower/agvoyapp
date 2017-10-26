@@ -1,0 +1,73 @@
+{# templates/circuitshow.html.twig #}
+
+{% set active = 'circuit' %}
+{% extends "baselayout.html.twig" %}
+{% block title %}{{ parent() }} - Circuit{% endblock %}
+
+{% block body %}
+	<a href="/circuit" style="font-size:10px">&#62;&#62; Retour à la liste des circuits</a>
+
+	<div class="wrapper">
+
+	<h1>{{ circuit.description }}</h1>
+
+	<h2>Détails</h2>
+		<p>Description: {{ circuit.description }}</p>
+		{% if img is not null %}
+			<img class="resize" src="/images/{{ img }}" alt="{{ circuit.description }}">
+		{% endif %}
+
+		<p>
+		Départ de {{ circuit.villeDepart }} pour {{ circuit.dureeCircuit }} jours
+		de voyage à travers le {{ circuit.paysDepart }}, pour terminer à
+		{{ circuit.villeArrivee }}.
+		</p>
+
+		<p>
+		Liste des étapes:</br>
+
+		<div class="grid">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nom de l'étape&nbsp;</th>
+					<th>Nombre de jours&nbsp;</th>
+				</tr>
+			</thead>
+			{% for etape in circuit.etapes %}
+				<tr>
+					<td>{{ etape.villeEtape }}</td>
+					<td>{{ etape.nombreJours }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+		</div>
+
+		</p>
+
+		{% if circuit.programmations is not empty %}
+		<h2>Programmations de ce circuit</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Date de départ&nbsp;</th>
+					<th>Nombre de personnes&nbsp;</th>
+					<th>Prix&nbsp;</th>
+				</tr>
+			</thead>
+			{%  for programmation in circuit.programmations %}
+				<tr>
+					<td>{{ programmation.dateDepart|date('d-m-Y') }}</td>
+					<td>{{ programmation.nombrePersonnes }}</td>
+					<td>{{ programmation.prix }} euros</td>
+				</tr>
+			{% endfor %}
+		</table>
+		{% else %}
+		<p>Désolé : pas encore de programmations pour ce circuit.</p>
+		{% endif %}
+
+	</div>
+
+{% endblock %} {# body #}
+

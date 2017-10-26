@@ -1,0 +1,38 @@
+{# templates/baselayout.html.twig #}
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script src="/js/bootstrap.js"></script>
+	<script src="/js/npm.js"></script>
+	<title>{% block title %}MegaVoyage{% endblock %}</title>
+</head>
+
+<body>
+	<! -- Menu -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="container">
+		<div class="navbar-header">
+		  <a class="navbar-brand" href="/">MegaVoyage</a>
+		</div>
+		<ul class="nav navbar-nav">
+		  <li {% if active == 'accueil' %}class="active"{% endif %}><a href="/">Accueil</a></li>
+		  <li {% if active == 'circuit' %}class="active"{% endif %}><a href="/circuit">Circuits</a></li>
+		  <li {% if active == 'connexion' %}class="active"{% endif %}><a href="/connexion">Connexion</a></li>
+		  <li><a href="mailto:admin@megavoyage.net">Contact</a></li>
+		</ul>
+	  </div>
+	</nav>
+
+    {% block body %}
+    {% endblock %} {# body #}
+<footer class="py-3 bg-dark">
+	<div class="container">
+		<p class="m-0 text-center text-white">Website designed by Maxime Villard & Baptiste Tabary</p>
+	</div>
+</footer>
+</body>
+</html>

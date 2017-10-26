@@ -1,0 +1,29 @@
+{% set active = 'accueil' %}
+{# templates/accueil.html.twig #}
+
+{% extends "baselayout.html.twig" %}
+
+{% block title %}{{ parent() }} - Circuits list{% endblock %}
+
+{% block body %}
+	<div class="wrapper">
+	<div class="accueil-greeter">
+	<h1 class="accueil-welcome">Bienvenue chez MegaVoyage !</h1>
+	</div>
+	<h2>Actualités</h2>
+	{% if list is not empty %}
+		Programmations dans les dix prochains jours. Saisissez vite ces opportunités!
+		{% for elm in list %}
+			<ul>
+				<li><a href="/circuit/{{ elm[0] }}">{{ elm[1].description }}</a>, le {{ elm[2] }}</li>
+			</ul>
+		{% endfor %}
+	{% else %}
+		Désolé, pas de programmations prévues dans les prochains jours!
+	{% endif %}
+
+	<h2>Qui sommes-nous?</h2>
+	Chez MegaVoyage, nous avons à coeur la satisfaction client.
+
+	</div>
+{% endblock %} {# body #}

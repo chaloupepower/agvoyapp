@@ -1,0 +1,30 @@
+body {
+	padding-top: 3rem;
+}
+img.resize {
+	max-width:50%;
+	max-height:50%;
+}
+
+div.wrapper {
+	padding: 3rem 1.5rem;
+}
+
+div.grid {
+	width:400px;
+}
+.accueil-greeter {
+	height:auto;
+	width:auto;
+	max-width: 85%;
+	min-height:600px;
+	margin :auto;
+	text-align: center;
+	font-size: 4.5rem;
+	color: midnightblue;
+	background-image: url("/images/accueil.jpeg");
+	background-size: cover;
+}
+.accueil-welcome {
+	padding-top:150px;
+}

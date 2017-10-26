@@ -1,0 +1,28 @@
+{% set active = 'circuit' %}
+{# templates/circuitslist.html.twig #}
+
+{% extends "baselayout.html.twig" %}
+
+{% block title %}{{ parent() }} - Liste des circuits{% endblock %}
+
+{% block body %}
+	<div class="wrapper">
+
+	<h1>Liste des circuits</h1>
+	{% if circuitslist is not empty %}
+		<p>Voici tous les circuits disponibles chez MegaVoyage:</p>
+		<ul>
+		{# Loop through list and create the list of circuit items. #}
+		{% for circuit in circuitslist %}
+			<li>
+				<a href="{{ path('circuitshow', { 'id' : circuit.id }) }}">{{ circuit.description }}</a>
+			</li>
+		{% endfor %}
+		</ul>
+	{% else %}
+		<p>Sorry, you don't have any circuits yet!</p>
+	{% endif %}
+
+	</div>
+{% endblock %} {# body #}
+
