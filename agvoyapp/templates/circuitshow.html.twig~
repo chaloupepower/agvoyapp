@@ -1,0 +1,76 @@
+{# templates/circuitshow.html.twig #}
+
+{% set active = 'circuit' %}
+{% extends "baselayout.html.twig" %}
+{% block title %}{{ parent() }} - Circuit{% endblock %}
+
+{% block body %}
+	<a href="/circuit" class="btn btn-default" ><< Retour à la liste des circuits</a>
+	<h1 class="text-center">{{ circuit.description }}</h1>
+	<div class="row">
+	<div class="col-lg-6">
+		{% if img is not null %}
+			<img class="resize" src="/images/{{ img }}" alt="{{ circuit.description }}">
+		{% endif %}
+	</div>
+	<div class="col-lg-6">
+		<h3>Détails</h3>		
+		<p>
+		<strong>Description :</strong> {{ circuit.description }}<br>
+		Départ de {{ circuit.villeDepart }} pour {{ circuit.dureeCircuit }} jours
+		de voyage en {{ circuit.paysDepart }}, pour terminer à
+		{{ circuit.villeArrivee }}.
+		</p>
+
+		
+		<h3>Liste des étapes</h3>
+		<p>
+		<div class="grid">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nom de l'étape&nbsp;</th>
+					<th>Nombre de jours&nbsp;</th>
+				</tr>
+			</thead>
+			{% for etape in circuit.etapes %}
+				<tr>
+					<td>{{ etape.villeEtape }}</td>
+					<td>{{ etape.nombreJours }}</td>
+				</tr>
+			{% endfor %}
+		</table>
+		</div>
+		</p>
+	</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+		{% if circuit.programmations is not empty %}
+		<h2 class="text-center">Programmations de ce circuit</h2>
+		<table class="table table-bordered table-condensed text-center">
+				<tr>
+					<th>Date de départ</th>
+					{% for programmation in circuit.programmations %}
+					<td>{{ programmation.dateDepart|date('d/m/Y') }}</td>
+					{% endfor %}
+				</tr>
+				<tr>
+					<th>Nombre de personnes</th>
+					<td>{{ programmation.nombrePersonnes }}</td>
+				</tr>
+				<tr>
+					<th>Prix</th>
+					{% for programmation in circuit.programmations %}
+					<td>{{ programmation.prix }}€</td>
+					{% endfor %}
+				</tr>
+		</table>
+		{% else %}
+		<p>Désolé : pas encore de programmations pour ce circuit.</p>
+		{% endif %}
+		</div>
+</div>
+</div>
+{% endblock %} {# body #}
+
