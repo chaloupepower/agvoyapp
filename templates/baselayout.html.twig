@@ -5,33 +5,37 @@
 	<link rel="stylesheet" href="/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="/css/style.css">	
-	<script src="/js/jquery-3.2.1.min.js"></script>
-	<script src="/js/bootstrap.min.js"></script>
 	<title>{% block title %}MegaVoyage{% endblock %}</title>
 </head>
 
 <body>
-<div class="container">
-	<! -- Menu -->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-header">
-		  <a class="navbar-brand" href="/">MegaVoyage</a>
-		</div>
-		<ul class="nav navbar-nav">
-		  <li {% if active == 'accueil' %}class="active"{% endif %}><a href="/">Accueil</a></li>
-		  <li {% if active == 'circuit' %}class="active"{% endif %}><a href="/circuit">Circuits</a></li>
-		  <li {% if active == 'connexion' %}class="active"{% endif %}><a href="/connexion">Connexion</a></li>
-		  <li><a href="mailto:admin@megavoyage.net">Contact</a></li>
-		</ul>
-	</nav>
+	<div class="container">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">MegaVoyage</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li {% if active == 'accueil' %}class="active"{% endif %}><a href="/">Accueil</a></li>
+				<li {% if active == 'circuit' %}class="active"{% endif %}><a href="/circuit">Circuits</a></li>
+				<li {% if active == 'connexion' %}class="active"{% endif %}><a href="/connexion">Connexion</a></li>
+				<li><a href="mailto:admin@megavoyage.net">Contact</a></li>
+			</ul>
+			</div>
+		</nav>
+	
 
-    {% block body %}
-    {% endblock %}
-<div class="row">
-	<footer class="well">
-		<p class="text-center">Website designed by Maxime Villard & Baptiste Tabary</p>
-	</footer>
-</div>
-</div>
+		{% block body %}
+		{% endblock %}
+		<div class="row">
+			<footer class="well">
+				<p class="text-center">© 2017</p>
+			</footer>
+		</div>
+	</div>
+	<script src="/js/jquery-3.2.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	{% block script %}
+	{% endblock %}}
 </body>
 </html>

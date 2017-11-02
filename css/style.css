@@ -8,18 +8,10 @@ img.resize {
 div.grid {
 	width:400px;
 }
-.accueil-greeter {
-	height:auto;
-	width:auto;
-	max-width: 85%;
-	min-height:600px;
-	margin :auto;
-	text-align: center;
-	font-size: 4.5rem;
-	color: midnightblue;
-	background-image: url("/images/accueil.jpeg");
-	background-size: cover;
-}
-.accueil-welcome {
-	padding-top:150px;
+.greeter-caption {
+    position: absolute;
+    top: 200px;
+    left: 0;
+    width: 100%;
+    font-size: 60px;
 }
