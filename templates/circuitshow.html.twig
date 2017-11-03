@@ -5,14 +5,12 @@
 	{% block title %}{{ parent() }} - Circuit{% endblock %}
 
 		{% block body %}
-			<div class="row">
-				<div class="col-lg-3">
-					<a href="/circuit" class="btn btn-default" ><span class="glyphicon glyphicon-menu-left"></span> Retour à la liste des circuits</a><br>
-				</div>
-			</div>
+			
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="text-left page-header">{{ circuit.description }}</h1>
+					<div class="page-header">
+						<h1>{{ circuit.description }}<a href="/circuit" class="btn btn-primary pull-right"><span class="glyphicon glyphicon-menu-left"></span> Retour à la liste des circuits</a></h1>
+					</div>
 				</div>
 			</div>
 			<div class="row">
@@ -27,11 +25,9 @@
 							<h2 class="panel-title">Détails du voyage</h2>		
 						</div>
 						<div class="panel-body">
-							<p class="text-justify">	
-								<strong>Description :</strong> {{ circuit.description }}<br>
-								Départ de {{ circuit.villeDepart }} pour {{ circuit.dureeCircuit }} jours
-								de voyage en {{ circuit.paysDepart }}, pour terminer à
-								{{ circuit.villeArrivee }}.
+							<p class="text-justify">
+								Départ de <strong>{{ circuit.villeDepart }}</strong> pour <strong>{{ circuit.dureeCircuit }} jours</strong> de voyage en <strong>{{ circuit.paysDepart }}</strong>, pour terminer à
+								<strong>{{ circuit.villeArrivee }}</strong>.
 							</p>
 						</div>
 					</div>
@@ -40,11 +36,11 @@
 							<h2 class="panel-title">Liste des étapes</h2>		
 						</div>
 						<div class="table-responsive">
-							<table class="table table-striped table-condensed table-hover">
+							<table class="table table-striped table-condensed table-hover text-center">
 								<thead>
 									<tr>
-										<th>Nom de l'étape</th>
-										<th>Durée du séjour</th>
+										<th class="text-center">Nom de l'étape</th>
+										<th class="text-center">Durée du séjour (en jours)</th>
 									</tr>
 								</thead>
 								{% for etape in circuit.etapes %}
@@ -60,27 +56,27 @@
 			</div>
 			<br>
 			<div class="row">
-				<div class="col-lg-8">
+				<div class="col-lg-offset-3 col-lg-6">
 					<div class="panel panel-primary">
 						{% if circuit.programmations is not empty %}
 							<div class="panel-heading">
 								<h2 class="text-center panel-title">Programmations de ce circuit</h2>
 							</div>
-							<table class="table table-bordered table-condensed table-hover">
+							<table class="table table-bordered table-condensed table-hover text-center">
 								<tr>
-									<th>Date de départ</th>
+									<th class="col-lg-4">Date de départ</th>
 									{% for programmation in circuit.programmations %}
 										<td>{{ programmation.dateDepart|date('d/m/Y') }}</td>
 									{% endfor %}
 								</tr>
 								<tr>
-									<th>Nombre de personnes</th>
+									<th class="col-lg-4">Nombre de personnes</th>
 									{% for programmation in circuit.programmations %}
 										<td>{{ programmation.nombrePersonnes }}</td>
 									{% endfor %}
 								</tr>
 								<tr>
-									<th>Prix</th>
+									<th class="col-lg-4">Prix</th>
 									{% for programmation in circuit.programmations %}
 										<td>{{ programmation.prix }}€</td>
 									{% endfor %}

@@ -12,30 +12,29 @@
 	<div class="container">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="/">MegaVoyage</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li {% if active == 'accueil' %}class="active"{% endif %}><a href="/">Accueil</a></li>
-				<li {% if active == 'circuit' %}class="active"{% endif %}><a href="/circuit">Circuits</a></li>
-				<li {% if active == 'connexion' %}class="active"{% endif %}><a href="/connexion">Connexion</a></li>
-				<li><a href="mailto:admin@megavoyage.net">Contact</a></li>
-			</ul>
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">MegaVoyage</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li {% if active == 'accueil' %}class="active"{% endif %}><a href="/">Accueil</a></li>
+					<li {% if active == 'circuit' %}class="active"{% endif %}><a href="/circuit">Circuits</a></li>
+					<li {% if active == 'connexion' %}class="active"{% endif %}><a href="/connexion">Connexion</a></li>
+					<li><a href="mailto:admin@megavoyage.net">Contact</a></li>
+				</ul>
 			</div>
 		</nav>
-	
+
 
 		{% block body %}
 		{% endblock %}
-		<div class="row">
-			<footer class="well">
-				<p class="text-center">© 2017</p>
-			</footer>
-		</div>
 	</div>
+	<footer class="footer">
+		<br>
+		<p class="text-center text-muted small">© 2017<br>Powered by <a href="https://silex.symfony.com">Silex</a>, <a href="http://getbootstrap.com">Bootstrap</a> & <a href="https://jquery.com">JQuery</a></p>
+	</footer>
 	<script src="/js/jquery-3.2.1.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
 	{% block script %}
-	{% endblock %}}
+	{% endblock %}
 </body>
 </html>

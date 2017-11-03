@@ -64,6 +64,7 @@ add_programmation('2018-07-10', 10,  850, $circuitAndalousie);
 add_programmation('2017-08-16', 10, 1500, $circuitVietnam);
 add_programmation('2016-05-15', 12,  120, $circuitIdF);
 add_programmation('2017-10-25', 15,  800, $circuitItalie);
+add_programmation('2017-11-10', 14,  810, $circuitItalie);
 
 /*
  * Fonctions utilitaires
