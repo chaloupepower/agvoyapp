@@ -100,4 +100,15 @@ $app->get ( '/programmation',
 	}
 )->bind ( 'programmationlist' );
 
+$app->get ( '/backoffice',
+	function () use ($app)
+	{
+		$circuitslist = get_all_circuits();
+
+		return $app ['twig']->render ( 'backoffice/backofficebaselayout.html.twig', [
+				'circuitslist' => $circuitslist
+		] );
+	}
+)->bind ( 'backoffice' );
+
 $app->run ();
